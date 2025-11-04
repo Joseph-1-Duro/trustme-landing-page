@@ -1,13 +1,849 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>trust-me-landing</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>TrustMe — Secure Deposits, Verified Transactions & Guaranteed Releases</title>
+  <meta name="title" content="TrustMe — Secure Deposits, Verified Transactions & Guaranteed Releases" />
+  <meta name="description" content="TrustMe is a secure fintech platform that enables users to deposit safely, verify transactions, and release payments transparently. Experience 100% peace of mind in every deal." />
+  <meta name="keywords" content="TrustMe, escrow platform, secure payments, fintech, deposit verification, digital trust, safe transactions, online escrow, money release, business protection" />
+  <meta name="author" content="TrustMe Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a2540" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://trustme.com/" />
+  <meta property="og:title" content="TrustMe — Secure Deposits, Verified Transactions & Guaranteed Releases" />
+  <meta property="og:description" content="Build digital trust with TrustMe. Deposit securely, verify transactions, and release payments only when both parties are satisfied." />
+  <meta property="og:image" content="https://trustme.com/assets/preview.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://trustme.com/" />
+  <meta name="twitter:title" content="TrustMe — Secure Deposits, Verified Transactions & Guaranteed Releases" />
+  <meta name="twitter:description" content="TrustMe ensures total peace of mind — deposit, verify, and release with transparency and security." />
+  <meta name="twitter:image" content="https://trustme.com/assets/preview.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              500: '#1b9b9a',
+              600: '#158988',
+            },
+            navy: {
+              900: '#0a2540',
+              800: '#0d3558',
+            },
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Structured Data for SEO (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "TrustMe",
+    "url": "https://trustme.com",
+    "logo": "https://trustme.com/assets/logo.png",
+    "description": "TrustMe is a secure fintech escrow service for safe deposits, verified transactions, and guaranteed fund releases.",
+    "sameAs": [
+      "https://twitter.com/trustme",
+      "https://linkedin.com/company/trustme",
+      "https://facebook.com/trustme"
+    ],
+    "foundingDate": "2025",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "TrustMe Team"
+      }
+    ],
+    "serviceType": "Escrow & Digital Payment Protection",
+    "areaServed": "Worldwide",
+    "brand": {
+      "@type": "Brand",
+      "name": "TrustMe",
+      "url": "https://trustme.com"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+234-800-TRUSTME",
+      "contactType": "customer support",
+      "areaServed": "NG",
+      "availableLanguage": ["English"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "TrustMe Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Secure Deposits",
+            "description": "Safely deposit funds in a secure escrow wallet before completing transactions."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Identity Verification",
+            "description": "Verify counterparties with AI-driven digital identity checks."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Smart Release",
+            "description": "Release funds only when both parties confirm satisfaction."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                    <div>
+                        <img src="trust-me-logo.png" style="width: 200px;" alt="">
+                    </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-10">
+                    <li><a href="#How It Works" class="text-gray-700 hover:text-teal-500 font-medium transition-colors">How It Works</a></li>
+                    <li><a href="#Features" class="text-gray-700 hover:text-teal-500 font-medium transition-colors">Features</a></li>
+                    <li><a href="#Pricing" class="text-gray-700 hover:text-teal-500 font-medium transition-colors">Pricing</a></li>
+                    <li><a href="#Contact" class="text-gray-700 hover:text-teal-500 font-medium transition-colors">Contact</a></li>
+                </ul>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-gray-700 font-semibold hover:text-teal-500 transition-colors px-4 py-2">Login</button>
+                    <button class="bg-teal-500 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-teal-600 transition-all hover:shadow-lg hover:-translate-y-0.5">Sign up</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <div class="w-6 h-0.5 bg-gray-900 mb-1.5"></div>
+                    <div class="w-6 h-0.5 bg-gray-900 mb-1.5"></div>
+                    <div class="w-6 h-0.5 bg-gray-900"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#customers" class="block text-gray-700 hover:text-teal-500 font-medium">How It Works</a>
+                <a href="#Resources" class="block text-gray-700 hover:text-teal-500 font-medium">Resources</a>
+                <a href="#pricing" class="block text-gray-700 hover:text-teal-500 font-medium">Pricing</a>
+                <a href="#Contact" class="block text-gray-700 hover:text-teal-500 font-medium">Contact</a>
+                <button class="w-full text-left text-gray-700 font-semibold hover:text-teal-500">Login</button>
+                <button class="w-full bg-teal-500 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-teal-600">Sign up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="bg-gradient-to-br from-gray-50 to-teal-50 py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left Content -->
+      <div>
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6">
+          Secure Real Estate Deals with Digital Escrow Confidence.
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-lg">
+          TrustMe is your neutral escrow platform for safe, transparent, and compliant property transactions.  
+          Funds, documents, and approvals — all protected until every condition is met.
+        </p>
+
+        <!-- Email Signup -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <input type="email" placeholder="Enter your email to join early access" class="flex-1 px-6 py-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+          <button class="bg-teal-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-teal-600 transition-all flex items-center justify-center gap-2 hover:gap-3">
+            Get Started
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Partners -->
+        <div class="flex items-center gap-8 flex-wrap">
+          <span class="font-bold text-xl text-gray-900">CBN Certified</span>
+          <span class="font-bold text-xl text-gray-900">NIBSS Partner</span>
+          <span class="font-bold text-xl text-gray-900">PropertyPro</span>
+        </div>
+      </div>
+
+      <!-- Right Card -->
+      <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-10">
+        <!-- Card Header -->
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500 font-medium">Active Escrow Wallet</p>
+          </div>
+        </div>
+
+        <!-- Amount -->
+        <div class="text-4xl font-bold text-gray-900 mb-8">₦1,070,560 Locked Securely</div>
+
+        <!-- Virtual Escrow Card -->
+        <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-6 mb-6 relative overflow-hidden">
+          <div class="relative z-10">
+            <div class="w-12 h-10 bg-white bg-opacity-20 rounded-lg mb-12"></div>
+            <div class="text-white text-2xl tracking-widest mb-8 font-medium">
+              Transaction ID •••• •••• •••• 7890
+            </div>
+            <div class="flex justify-between items-end">
+              <div class="text-white text-sm opacity-90">Verified • Pending Release</div>
+              <div class="text-white text-3xl font-bold italic">TrustMe</div>
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full -mr-20 -mt-20"></div>
+        </div>
+
+        <!-- Account Options -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all cursor-pointer hover:translate-x-1">
+            <div class="w-6 h-6 bg-teal-500 rounded-md"></div>
+            <span class="font-medium text-gray-900">Buyer Escrow Account</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all cursor-pointer hover:translate-x-1">
+            <div class="w-6 h-6 bg-teal-500 rounded-md"></div>
+            <span class="font-medium text-gray-900">Seller Escrow Account</span>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="w-full bg-teal-600 text-white font-semibold py-4 rounded-xl hover:bg-teal-700 transition-all hover:shadow-lg hover:-translate-y-0.5">
+          Release Funds Securely
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Features Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-4">
+      <p class="text-teal-500 font-semibold text-sm uppercase tracking-wide mb-3">TRUSTME ADVANTAGE</p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Secure. Transparent. Built for every real estate transaction.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <p class="text-gray-600 leading-relaxed">
+        TrustMe brings peace of mind to buyers, sellers, and agents by ensuring that funds are held securely 
+        until all deal terms are verified and fulfilled.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        From home purchases to land deals, we automate trust with neutral escrow wallets, verified payments, 
+        and real-time transaction tracking.
+      </p>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <!-- Feature 1 -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+            </path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Instant Escrow Setup</h3>
+        <p class="text-gray-600">
+          Open a digital escrow wallet in minutes — no banks, no stress. Your funds stay locked until both parties confirm.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+            </path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Multiple Party Support</h3>
+        <p class="text-gray-600">
+          Seamlessly manage escrow for multi-party transactions — buyers, sellers, agents, and legal stakeholders in one place.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+            </path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Bank-Grade Security</h3>
+        <p class="text-gray-600">
+          Every escrow wallet is verified, encrypted, and insured — ensuring your money and data stay 100% protected.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-teal-500 font-semibold text-sm uppercase tracking-wide mb-3">HOW IT WORKS</p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Simple. Secure. Transparent.
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Every property deal is protected with our 3-step escrow process — ensuring funds and documents are only released when all parties are satisfied.
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Step 1 -->
+      <div class="text-center relative">
+        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v8m0 0l-3-3m3 3l3-3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Step 1: Deposit</h3>
+        <p class="text-gray-600 leading-relaxed">
+          The buyer deposits the agreed funds into a secure TrustMe escrow wallet. Both parties are notified instantly, ensuring the money is safely held.
+        </p>
+
+        <!-- Line Connector (hidden on last item) -->
+        <div class="hidden md:block absolute top-8 right-[-60px] w-[120px] h-0.5 bg-teal-200"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="text-center relative">
+        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m5 4a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Step 2: Verification</h3>
+        <p class="text-gray-600 leading-relaxed">
+          TrustMe verifies documents, titles, and compliance (KYC/AML). Once the buyer and seller meet their conditions, the system flags the transaction as ready.
+        </p>
+
+        <!-- Line Connector -->
+        <div class="hidden md:block absolute top-8 right-[-60px] w-[120px] h-0.5 bg-teal-200"></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="text-center">
+        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Step 3: Release</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Once all conditions are verified, TrustMe automatically releases the funds to the seller — closing the deal with transparency and trust.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- WHY THEY TRUST US SECTION -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HEADER -->
+    <div class="text-center mb-16">
+      <p class="text-teal-500 font-semibold text-sm uppercase tracking-wide mb-3">WHY TRUST US</p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
+        Why People Trust <span class="text-navy-900">TrustMe</span>
+      </h2>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- LEFT CARD -->
+      <div class="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="text-6xl font-bold text-teal-500 mb-6">10k+</div>
+        <p class="text-xl font-semibold text-gray-900 leading-snug">
+          Verified transactions successfully<br>completed through TrustMe
+        </p>
+      </div>
+
+      <!-- RIGHT CARD -->
+      <div class="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-all duration-300">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">
+          Transparent escrow protection<br>for every transaction
+        </h3>
+        <div class="flex gap-4">
+          <!-- Verified Icon -->
+          <div class="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+
+          <!-- Shield Icon -->
+          <div class="w-14 h-14 bg-navy-900 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART CARD -->
+    <div class="bg-white rounded-3xl p-12 shadow-lg mt-8 hover:shadow-xl transition-all duration-300">
+      <div class="flex justify-between items-start mb-8">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Consistent Trust Growth</h3>
+          <p class="text-gray-600">
+            Every month, thousands of users rely on TrustMe<br>for verified and secure transactions.
+          </p>
+        </div>
+        <div class="text-right">
+          <p class="text-sm text-gray-500 mb-1">Past 6 Months →</p>
+          <p class="text-3xl font-bold text-gray-900">$4,876,320</p>
+        </div>
+      </div>
+
+      <!-- SIMPLE CHART VISUALIZATION -->
+      <div class="relative h-48">
+        <svg class="w-full h-full" viewBox="0 0 800 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="trust-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0" />
+            </linearGradient>
+          </defs>
+          <path d="M 0 180 Q 200 150 400 100 T 800 40 L 800 200 L 0 200 Z"
+            fill="url(#trust-gradient)" />
+          <path d="M 0 180 Q 200 150 400 100 T 800 40" fill="none" stroke="#14B8A6" stroke-width="3" />
+        </svg>
+        <div class="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-gray-400 px-4">
+          <span>Jan</span>
+          <span>Feb</span>
+          <span>Mar</span>
+          <span>Apr</span>
+          <span>May</span>
+          <span>Jun</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- SECURE ESCROW PROCESS SECTION -->
+<section class="py-20 bg-navy-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Heading -->
+    <h2 class="text-4xl lg:text-5xl font-bold mb-16 max-w-3xl leading-tight">
+      Secure every transaction with TrustMe’s verified escrow process.
+    </h2>
+
+    <!-- Steps Grid -->
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Step 1 -->
+      <div>
+        <div class="text-6xl font-bold text-white opacity-20 mb-6">1</div>
+        <h3 class="text-xl font-bold mb-3">Make a Deposit</h3>
+        <p class="text-gray-300">
+          Start by funding your TrustMe escrow wallet. Your payment stays protected until all terms are met.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div>
+        <div class="text-6xl font-bold text-white opacity-20 mb-6">2</div>
+        <h3 class="text-xl font-bold mb-3">Verification & Confirmation</h3>
+        <p class="text-gray-300">
+          TrustMe verifies both parties and confirms all agreements before authorizing any fund movement.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div>
+        <div class="text-6xl font-bold text-white opacity-20 mb-6">3</div>
+        <h3 class="text-xl font-bold mb-3">Funds Released Securely</h3>
+        <p class="text-gray-300">
+          Once all conditions are satisfied, funds are instantly released — ensuring safety, speed, and transparency.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Stats Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-navy-900 mb-4">
+      We've helped<br>innovative companies grow
+    </h2>
+    <p class="text-gray-600 mb-16 max-w-2xl mx-auto">
+      Hundreds of start-ups and SMEs use our secure APIs to power transactions, automate verifications, and scale efficiently.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-12 mb-20">
+      <div>
+        <div class="text-5xl font-bold text-teal-500 mb-2">24%</div>
+        <p class="text-gray-700">Revenue Increase</p>
+      </div>
+      <div>
+        <div class="text-5xl font-bold text-teal-500 mb-2">180K</div>
+        <p class="text-gray-700">Transactions processed</p>
+      </div>
+      <div>
+        <div class="text-5xl font-bold text-teal-500 mb-2">10+</div>
+        <p class="text-gray-700">Months of sustained growth</p>
+      </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <p class="text-sm text-gray-500 uppercase tracking-wide mb-8">Choose Plan</p>
+    <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+      <!-- Plus Plan -->
+      <div class="bg-gray-50 border border-gray-200 rounded-3xl p-10 text-left hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-3xl font-bold text-navy-900 mb-6">Plus</h3>
+        <div class="flex items-end gap-2 mb-8">
+          <span class="text-4xl font-bold text-navy-900">£2.99</span>
+          <span class="text-gray-600 mb-1">/month</span>
+        </div>
+        <button class="w-12 h-12 bg-teal-500 text-white rounded-xl flex items-center justify-center hover:bg-teal-600 transition-all">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl p-10 text-left text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-3xl font-bold mb-6">Premium</h3>
+        <div class="flex items-end gap-2 mb-8">
+          <span class="text-4xl font-bold">£6.99</span>
+          <span class="opacity-90 mb-1">/month</span>
+        </div>
+        <button class="w-12 h-12 bg-white rounded-xl flex items-center justify-center hover:shadow-md transition-all">
+          <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-20 bg-navy-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-navy-900 to-navy-800 rounded-3xl p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+          Ready to level up your<br>payment experience?
+        </h2>
+        <p class="text-gray-300 max-w-md">
+          Create your account today and experience a seamless, secure, and transparent payment ecosystem.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button class="bg-teal-500 text-white font-semibold px-8 py-4 rounded-xl hover:bg-teal-600 transition-all">
+          Create an account
+        </button>
+        <button class="border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white hover:text-navy-900 transition-all flex items-center gap-2">
+          Learn More
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-navy-900 text-white pt-16 pb-10 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Newsletter Signup -->
+    <div class="relative z-10 mb-16 bg-gradient-to-r from-teal-600 to-teal-500 rounded-3xl p-8 md:p-12 text-center shadow-lg">
+      <h3 class="text-2xl md:text-3xl font-bold mb-4">Stay Connected</h3>
+      <p class="text-white/90 mb-6 max-w-2xl mx-auto">
+        Join our community for updates, insights, and trust-building tips. No spam — just what matters.
+      </p>
+
+      <form class="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-xl mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your email address"
+          class="w-full sm:flex-1 px-5 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          required
+        />
+        <button 
+          type="submit"
+          class="bg-navy-900 hover:bg-navy-800 transition-all px-8 py-3 rounded-xl font-semibold text-white"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+     <!-- Logo / About -->
+<div>
+  <div class="flex items-center space-x-3 mb-6">
+    <img 
+      src="trustmelogo.png" 
+      alt="TrustMe Logo" 
+      class="w-12 h-12 rounded-xl object-contain bg-white p-1 shadow-sm"
+      loading="lazy"
+    />
+    <span class="text-2xl font-bold text-white">TrustMe</span>
+  </div>
+  <p class="text-gray-400 text-sm leading-relaxed">
+    TrustMe ensures safe, verified, and transparent payments for individuals and businesses.
+    Your peace of mind, guaranteed.
+  </p>
+</div>
+
+
+      <!-- Solutions -->
+      <div>
+        <h4 class="font-semibold text-white mb-5 text-lg">Solutions</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Deposit Escrow</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Smart Verification</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Automated Release</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="font-semibold text-white mb-5 text-lg">Company</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-teal-400 transition-colors">About Us</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Careers</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Press</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h4 class="font-semibold text-white mb-5 text-lg">Support</h4>
+        <ul class="space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Help Center</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Security</a></li>
+          <li><a href="#" class="hover:text-teal-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="border-t border-teal-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-400 text-sm">© 2025 TrustMe. All rights reserved.</p>
+      <div class="flex gap-6">
+        <!-- Twitter -->
+        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors" aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5A4.5 4.5 0 0023 3z"></path>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors" aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors" aria-label="Facebook">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TrustMe",
+    "url": "https://trustme.com",
+    "logo": "https://trustme.com/assets/logo.png",
+    "description": "TrustMe is a secure fintech escrow platform that guarantees safe deposits, verified transactions, and transparent fund releases.",
+    "sameAs": [
+      "https://twitter.com/trustme",
+      "https://linkedin.com/company/trustme",
+      "https://facebook.com/trustme"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+234-800-TRUSTME",
+      "contactType": "Customer Support",
+      "availableLanguage": ["English"]
+    },
+    "email": "support@trustme.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "45A Admiralty Way, Lekki Phase 1",
+      "addressLocality": "Lagos",
+      "addressCountry": "NG"
+    },
+    "potentialAction": {
+      "@type": "SubscribeAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://trustme.com/newsletter",
+        "actionPlatform": ["https://trustme.com"]
+      },
+      "name": "Join our newsletter for fintech insights and updates"
+    }
+  }
+  </script>
+</footer>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
+            
