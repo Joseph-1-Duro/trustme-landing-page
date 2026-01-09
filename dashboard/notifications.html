@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications | TrustMe</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { 500:'#1b9b9a', 600:'#158988', 700:'#107474' },
+            navy: { 900:'#0a2540', 800:'#0d3558' }
+          },
+          fontFamily: { inter:['Inter','sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family:'Inter',sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex overflow-x-hidden">
+
+    <!-- MOBILE SIDEBAR BACKDROP -->
+<div id="sidebarBackdrop" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
+
+
+<!-- SIDEBAR -->
+<aside id="sidebar"
+  class="fixed lg:static inset-y-0 left-0 w-72 bg-navy-900 text-white z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col">
+
+  <!-- Logo -->
+  <div class="p-6 flex items-center gap-3 border-b border-white/10">
+    <img src="../trustmelogo.png" class="w-10 h-10 rounded-lg bg-white p-1" />
+    <span class="text-xl font-bold">TrustMe</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="flex-1 p-4 space-y-1 text-sm">
+
+    <!-- Dashboard -->
+    <a href="index.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M3 12h7V3H3v9zM14 21h7v-9h-7v9zM3 21h7v-6H3v6zM14 3h7v6h-7V3z"/>
+      </svg>
+      Dashboard
+    </a>
+
+    <!-- Escrow Transactions -->
+    <a href="escrows.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 11c1.1 0 2 .9 2 2v3H10v-3c0-1.1.9-2 2-2z"/>
+        <path stroke-width="2"
+          d="M6 11h12V8a6 6 0 00-12 0v3z"/>
+      </svg>
+      Escrow Transactions
+    </a>
+
+    <!-- Create Escrow -->
+    <a href="create-escrow.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 5v14M5 12h14"/>
+      </svg>
+      Create Escrow
+    </a>
+
+    <!-- Escrow Documents -->
+    <a href="documents.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M7 2h8l5 5v15a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z"/>
+      </svg>
+      Documents Vault
+    </a>
+
+    <!-- Disputes -->
+    <a href="dispute.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M9 12h6M12 9v6"/>
+        <circle cx="12" cy="12" r="9" stroke-width="2"/>
+      </svg>
+      Dispute Resolution
+    </a>
+
+    <!-- Notifications -->
+    <a href="notifications.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5"/>
+      </svg>
+      Notifications
+    </a>
+
+    <!-- Profile & KYC -->
+    <a href="profile.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+        <path stroke-width="2"
+          d="M4 20a8 8 0 0116 0"/>
+      </svg>
+      Profile & KYC
+    </a>
+
+    <!-- Settings -->
+    <a href="settings.html"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+        <path stroke-width="2"
+          d="M2 12h2m16 0h2M12 2v2m0 16v2"/>
+      </svg>
+      Settings
+    </a>
+
+  </nav>
+
+  <!-- LOGOUT -->
+  <div class="p-4 border-t border-white/10">
+    <button
+      class="w-full bg-teal-600 hover:bg-teal-700 py-3 rounded-xl font-semibold transition">
+      Log Out
+    </button>
+  </div>
+</aside>
+
+
+<!-- MAIN -->
+<div class="flex-1 flex flex-col">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-sm px-6 py-4 flex items-center justify-between">
+    <div class="flex-col items-center gap-3">
+        <!-- Mobile Menu Button -->
+      <button onclick="toggleSidebar()" class="lg:hidden">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <h1 class="text-2xl font-bold text-gray-900">Notifications</h1>
+      <p class="text-gray-500 text-sm">Stay updated on your escrow activity</p>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <button class="text-sm text-teal-600 font-medium hover:underline">
+            Mark all as read
+            </button>
+    </div>
+    
+  </header>
+
+  <!-- CONTENT -->
+  <main class="p-6 max-w-5xl mx-auto w-full space-y-6">
+
+    <!-- FILTER -->
+    <div class="flex gap-2 overflow-x-auto">
+      <button class="px-4 py-2 rounded-xl bg-teal-600 text-white text-sm">All</button>
+      <button class="px-4 py-2 rounded-xl bg-white border text-sm">Unread</button>
+      <button class="px-4 py-2 rounded-xl bg-white border text-sm">Escrow</button>
+      <button class="px-4 py-2 rounded-xl bg-white border text-sm">Documents</button>
+      <button class="px-4 py-2 rounded-xl bg-white border text-sm">Disputes</button>
+    </div>
+
+    <!-- NOTIFICATION LIST -->
+    <section class="space-y-4">
+
+      <!-- Unread -->
+      <div class="bg-white rounded-2xl shadow p-5 border-l-4 border-teal-600">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-semibold text-gray-900">
+              Escrow Funds Locked Successfully
+            </p>
+            <p class="text-sm text-gray-600 mt-1">
+              ₦450,000 has been secured in escrow for
+              <span class="font-medium">Property Purchase – Lekki</span>.
+            </p>
+            <p class="text-xs text-gray-400 mt-2">5 minutes ago</p>
+          </div>
+          <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">
+            Escrow
+          </span>
+        </div>
+      </div>
+
+      <!-- Read -->
+      <div class="bg-white rounded-2xl shadow p-5 opacity-80">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-medium text-gray-900">
+              Document Verified
+            </p>
+            <p class="text-sm text-gray-600 mt-1">
+              TrustMe verified the uploaded <strong>Title Deed</strong>.
+            </p>
+            <p class="text-xs text-gray-400 mt-2">Yesterday</p>
+          </div>
+          <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+            Documents
+          </span>
+        </div>
+      </div>
+
+      <!-- Dispute -->
+      <div class="bg-white rounded-2xl shadow p-5 border-l-4 border-red-500">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-semibold text-gray-900">
+              Dispute Raised
+            </p>
+            <p class="text-sm text-gray-600 mt-1">
+              A dispute was raised on escrow
+              <span class="font-medium">TM-ESC-10294</span>.
+            </p>
+            <p class="text-xs text-gray-400 mt-2">2 days ago</p>
+          </div>
+          <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">
+            Dispute
+          </span>
+        </div>
+      </div>
+
+      <!-- Release -->
+      <div class="bg-white rounded-2xl shadow p-5 opacity-80">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-medium text-gray-900">
+              Funds Released
+            </p>
+            <p class="text-sm text-gray-600 mt-1">
+              Escrow funds have been successfully released to the seller.
+            </p>
+            <p class="text-xs text-gray-400 mt-2">1 week ago</p>
+          </div>
+          <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">
+            Escrow
+          </span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav
+  class="lg:hidden fixed bottom-0 inset-x-0 bg-white border-t border-gray-200 shadow-lg z-40">
+
+  <div class="flex justify-around items-center h-16">
+
+    <!-- Home / Dashboard -->
+    <a href="index.html"
+      class="flex flex-col items-center text-teal-600 text-xs font-medium">
+      <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M3 12h7V3H3v9zM14 21h7v-9h-7v9zM3 21h7v-6H3v6zM14 3h7v6h-7V3z"/>
+      </svg>
+      Home
+    </a>
+
+    <!-- Escrows -->
+    <a href="escrows.html"
+      class="flex flex-col items-center text-gray-500 text-xs">
+      <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 11c1.1 0 2 .9 2 2v3H10v-3c0-1.1.9-2 2-2z"/>
+        <path stroke-width="2"
+          d="M6 11h12V8a6 6 0 00-12 0v3z"/>
+      </svg>
+      Escrows
+    </a>
+
+    <!-- Create Escrow (Primary Action) -->
+    <a href="create-escrow.html"
+      class="flex flex-col items-center -mt-6">
+      <div
+        class="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-xl">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-width="2" d="M12 5v14M5 12h14"/>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Notifications -->
+    <a href="notifications.html"
+      class="flex flex-col items-center text-gray-500 text-xs relative">
+      <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5"/>
+      </svg>
+      Notifications
+
+      <!-- Badge -->
+      <span
+        class="absolute top-0 right-3 w-4 h-4 bg-teal-500 text-white text-[10px] rounded-full flex items-center justify-center">
+        2
+      </span>
+    </a>
+
+    <!-- Profile -->
+    <a href="profile.html"
+      class="flex flex-col items-center text-gray-500 text-xs">
+      <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor"
+        viewBox="0 0 24 24">
+        <path stroke-width="2"
+          d="M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+        <path stroke-width="2"
+          d="M4 20a8 8 0 0116 0"/>
+      </svg>
+      Profile
+    </a>
+
+  </div>
+</nav>
+
+<!-- SCRIPTS -->
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('-translate-x-full');
+  document.getElementById('sidebarBackdrop').classList.toggle('hidden');
+}
+document.getElementById('sidebarBackdrop').onclick = toggleSidebar;
+</script>
+
+</body>
+</html>
